@@ -1,0 +1,11 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0D0D0D"/>
+  <circle cx="990" cy="110" r="200" fill="#D4AF37" fill-opacity="0.15"/>
+  <circle cx="210" cy="520" r="240" fill="#F2D27A" fill-opacity="0.08"/>
+  <text x="80" y="190" fill="#F4EFE2" font-size="72" font-family="Arial, sans-serif" font-weight="700">Dev Maktuporia</text>
+  <text x="80" y="255" fill="#D4AF37" font-size="36" font-family="Arial, sans-serif">Computer Engineering Student | Tech Enthusiast | AI Explorer</text>
+  <text x="80" y="350" fill="#CFC7B5" font-size="30" font-family="Arial, sans-serif">Premium dark-gold portfolio with modern motion and a sleek professional identity.</text>
+  <rect x="80" y="420" width="420" height="130" rx="30" fill="#121212" stroke="#D4AF37" stroke-opacity="0.35"/>
+  <text x="120" y="480" fill="#F4EFE2" font-size="30" font-family="Arial, sans-serif">SCET | DtoD | AI | ML | Web</text>
+  <text x="120" y="525" fill="#F2D27A" font-size="24" font-family="Arial, sans-serif">Luxurious dark gold theme</text>
+</svg>

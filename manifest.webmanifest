@@ -1,0 +1,16 @@
+{
+  "name": "Dev Maktuporia Portfolio",
+  "short_name": "Dev Maktuporia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#0d0d0d",
+  "description": "Premium dark-gold personal portfolio for Dev Maktuporia.",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
