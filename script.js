@@ -9,7 +9,12 @@ const state = {
   trailY: window.innerHeight / 2,
   easterClicks: 0
 };
-
+const supabaseKey = "sb_publishable_a0dl5qrwqgurOwf5yFdihQ_bgSX0dmn";
+const supabaseUrl = "https://pcufpmzdnoxihsvtpidn.supabase.co";
+const supabaseClient = supabase.createClient(
+  supabaseUrl,
+  supabaseKey
+);
 const loader = document.querySelector(".loader");
 const navToggle = document.getElementById("nav-toggle");
 const siteNav = document.getElementById("site-nav");
@@ -323,14 +328,33 @@ function handleFilter(category) {
 
 async function loadVisitorCount() {
   try {
-    const response = await fetch("/api/visitor-count", { method: "POST" });
-    const data = await parseJsonResponse(response);
-    if (!response.ok) {
-      throw new Error(data?.error || data?.message || "Visitor counter unavailable.");
+    const { data, error } = await supabaseClient
+      .from("visitor_counter")
+      .select("visitors")
+      .eq("id", 1)
+      .single();
+
+    if (error) throw error;
+
+    let count = data.visitors;
+
+    if (!localStorage.getItem("portfolio_visited")) {
+      count++;
+
+      const { error: updateError } = await supabaseClient
+        .from("visitor_counter")
+        .update({ visitors: count })
+        .eq("id", 1);
+
+      if (updateError) throw updateError;
+
+      localStorage.setItem("portfolio_visited", "true");
     }
-    visitorCount.textContent = formatVisitorCount(data.visitors);
+
+    visitorCount.textContent = count.toLocaleString();
+
   } catch (error) {
-    console.warn("Visitor count unavailable", error);
+    console.error("Visitor counter error:", error);
     visitorCount.textContent = "1";
   }
 }
