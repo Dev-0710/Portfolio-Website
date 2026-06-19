@@ -218,6 +218,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.45rem;
   min-height: 3rem;
   padding: 0.8rem 1.25rem;
   border-radius: 999px;
@@ -252,9 +253,20 @@ textarea {
 }
 
 .social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   color: var(--muted);
   border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   padding-bottom: 0.25rem;
+}
+
+.social-links svg,
+.btn svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: 0 0 auto;
+  fill: currentColor;
 }
 
 .hero__stats {
