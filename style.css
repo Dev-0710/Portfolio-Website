@@ -262,7 +262,8 @@ textarea {
 }
 
 .social-links svg,
-.btn svg {
+.btn svg,
+.contact-info__link svg {
   width: 1.05em;
   height: 1.05em;
   flex: 0 0 auto;
@@ -685,6 +686,12 @@ textarea {
   display: block;
   margin-bottom: 0.8rem;
   color: #f7e4b0;
+}
+
+.contact-info a.contact-info__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 
 .visitor-box {
