@@ -276,12 +276,27 @@ function drawRadarChart() {
     radarCtx.strokeStyle = "rgba(212, 175, 55, 0.16)";
     radarCtx.stroke();
 
-    const labelX = Math.cos(axis.angle) * (radius + 22);
-    const labelY = Math.sin(axis.angle) * (radius + 22);
+    const labelOffset = 20;
+    const labelPadding = 12;
+    const rawLabelX = Math.cos(axis.angle) * (radius + labelOffset);
+    const rawLabelY = Math.sin(axis.angle) * (radius + labelOffset);
     radarCtx.fillStyle = "#f4e3ad";
-    radarCtx.font = "14px Space Grotesk";
-    radarCtx.textAlign = labelX > 0 ? "left" : "right";
-    radarCtx.fillText(axis.label, labelX, labelY);
+    radarCtx.font = "13px Space Grotesk";
+    radarCtx.textBaseline = "middle";
+
+    const labelWidth = radarCtx.measureText(axis.label).width;
+    const absoluteX = centerX + rawLabelX;
+    const clampedX = Math.min(
+      Math.max(absoluteX, labelPadding + labelWidth / 2),
+      width - labelPadding - labelWidth / 2
+    );
+    const clampedY = Math.min(
+      Math.max(centerY + rawLabelY, labelPadding),
+      height - labelPadding
+    );
+
+    radarCtx.textAlign = "center";
+    radarCtx.fillText(axis.label, clampedX - centerX, clampedY - centerY);
   });
 
   radarCtx.beginPath();
